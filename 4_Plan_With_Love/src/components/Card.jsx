@@ -17,8 +17,8 @@ function Card({id, name, info, image, price,removeTour}) {
 
     
     return (
-        <div className="card max-w-[380px] max-h-[600px] h-max p-4 flex flex-col items-center justify-between rounded-lg shadow-slate-500 shadow-sm">
-            <img className="w-[100%] h-[300px]" src={image} alt="" />
+        <div className="card max-w-[350px] h-max p-4 flex flex-col items-center justify-between rounded-lg shadow-slate-500 shadow-sm">
+            <img className="w-[100%] h-[300px] object-cover" src={image} alt="" />
 
             <div className="info">
                 <div className="tour-detail h-[40%]">
@@ -38,7 +38,7 @@ function Card({id, name, info, image, price,removeTour}) {
                 </div>
             </div>
 
-            <button className="btn-red hover:bg-red-500 hover:text-white border border-red-600 bg-red-200 cursor-pointer w-[250px] h-[40px] rounded-md my-3 text-[20px] font-bold" onClick={() => removeTour(id)}>
+            <button className="btn-red hover:bg-red-500 hover:text-white border transition-all duration-500 border-red-600 bg-red-200 cursor-pointer w-[250px] h-[40px] rounded-md my-3 text-[20px] font-bold" onClick={() => removeTour(id)}>
                 Not Interested
             </button>
         </div>
