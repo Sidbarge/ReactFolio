@@ -1,12 +1,31 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+  const[windowSize,setWindowSize]=useState({
+    width:window.innerWidth,
+    height:window.innerHeight
+  })
+  useEffect(()=>{
+    const resizeHandler=()=>{
+      setWindowSize({
+        width:window.innerWidth,
+        height:window.innerHeight
+      })
+    }
+    // Add event listener
+    window.addEventListener('resize',resizeHandler)
+
+    return ()=>{
+      //remove event listener
+      window.removeEventListener('resize',resizeHandler)
+    }
+  })
   return (
-    <main className="flex justify-center gap-4 flex-col min-h-screen">
-      <h1 className="text-3xl text-center font-bold underline">React & Tailwind CSS Starter Pack</h1>
-      <p className="text-center text-xl">This is a starter pack for React & Tailwind CSS projects.</p>
-      <img src="https://bit.ly/3wsmzTy" alt="meme" className="mx-auto" />
-    </main>
+    <div className="flex flex-col justify-center items-center h-[96vh] box-border ">
+      <span>Window Width:{windowSize.width}</span>
+      <span>Window height:{windowSize.height}</span>
+    </div>
   );
 }
 
